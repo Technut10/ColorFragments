@@ -9,10 +9,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-
-
-
+        android:text="@string/red_fragment"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/blue_fragment"
+        />
+
 
 </FrameLayout>

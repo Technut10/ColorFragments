@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="red_fragment">RED FRAGMENT</string>
     <string name="choose_lower_fragment_color">CHOOSE LOWER FRAGMENT COLOR</string>
+    <string name="blue_fragment">BLUE FRAGMENT</string>
 </resources>

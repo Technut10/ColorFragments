@@ -10,17 +10,30 @@
 
     <TextView
         android:id="@+id/top_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:text="@string/choose_lower_fragment_color"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:background="@color/grey_primary"
+        android:layout_weight=".25"
+
        />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:background="@color/yellow"
+        android:layout_weight="1"
+        >
+
+    </androidx.fragment.app.FragmentContainerView>
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
 
     </androidx.fragment.app.FragmentContainerView>
 </LinearLayout> 

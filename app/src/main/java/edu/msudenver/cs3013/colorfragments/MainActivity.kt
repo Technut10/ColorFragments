@@ -19,9 +19,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    fun fhfhfhf(){
 
-    }
 
 
 

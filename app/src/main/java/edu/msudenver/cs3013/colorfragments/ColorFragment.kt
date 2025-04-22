@@ -43,7 +43,7 @@ class ColorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d("BlueFragment", "===ON VIEW CREATED!!!====")
         view.setBackgroundColor(Color.rgb(150,150,255))
-
+        fragmentCount++
     }
 
     companion object {
@@ -57,7 +57,7 @@ class ColorFragment : Fragment() {
          */
             var fragmentCount : Int
                 get(){
-                    return fragmentCount++
+                    return fragmentCount
                 }
             init {
                 fragmentCount = 0
