@@ -27,13 +27,16 @@
         android:layout_height="0dp"
         android:background="@color/yellow"
         android:layout_weight="1"
+        android:name="edu.msudenver.cs3013.colorfragments.ChoiceFragment"
+
         >
 
     </androidx.fragment.app.FragmentContainerView>
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/lower_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="4">
 
     </androidx.fragment.app.FragmentContainerView>
 </LinearLayout> 

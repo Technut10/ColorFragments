@@ -6,16 +6,31 @@
     tools:context=".ChoiceFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/red_fragment"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/blue_fragment"
-        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/red_fragment"
+            android:background="@color/light_red"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/blue_fragment"
+            android:textColor="@color/black"
+            android:background="@color/colorBlue50PercentTransparent"
+            />
+
+
+    </LinearLayout>
+
 
 
 </FrameLayout>
