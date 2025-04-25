@@ -28,10 +28,10 @@
         android:background="@color/yellow"
         android:layout_weight="1"
         android:name="edu.msudenver.cs3013.colorfragments.ChoiceFragment"
-
+        android:layout_gravity="center_horizontal"
         >
 
-    </androidx.fragment.app.FragmentContainerView>
+       </androidx.fragment.app.FragmentContainerView>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/lower_fragment_container"
         android:layout_width="match_parent"
