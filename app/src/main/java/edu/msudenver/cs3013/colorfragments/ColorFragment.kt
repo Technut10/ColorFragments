@@ -20,8 +20,8 @@ private const val COLOR_CHOICE = "COLOR_CHOICE"
  * create an instance of this fragment.
  */
 class ColorFragment : Fragment() {
-     val blue = rgb(155, 155, 255)
-    val red = rgb(255,155,155)
+     val blue = rgb(150, 150, 255)
+    val red = rgb(255,150,150)
     var myIndex : Int = 0
 
     companion object {
