@@ -42,7 +42,6 @@ class ColorFragment : Fragment() {
     override fun onViewCreated(view:View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         Log.d("BlueFragment", "===ON VIEW CREATED!!!====")
-        view.setBackgroundColor(Color.rgb(150,150,255))
         fragmentCount++
     }
 
@@ -67,13 +66,13 @@ class ColorFragment : Fragment() {
 
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(id: Int) =
             ColorFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    fragmentCount = id
+                    putInt(ARG_PARAM1, id)
+                    putString(ARG_PARAM2, id.toString())
                 }
-                 myIndex = fragmentCount
 
             }
     }

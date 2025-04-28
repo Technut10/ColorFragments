@@ -3,45 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/choice_fragment"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
     tools:context=".ChoiceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- TODOd: Update blank fragment layout -->
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <TextView
-            android:id="@+id/red_fragment"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:text="@string/red_fragment"
-            android:background="@color/light_red"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-        <TextView
-            android:id="@+id/blue_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/blue_fragment"
-            android:textColor="@color/black"
-            android:background="@color/colorBlue50PercentTransparent"
-            app:layout_constraintStart_toEndOf="@id/red_fragment"
-
-            />
+            android:orientation="horizontal"
+            android:paddingTop="50dp"
+            >
+            <TextView
+                android:id="@+id/red_fragment"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="@string/red_fragment"
+                android:background="@color/light_red"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/blue_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/blue_fragment"
+                android:textColor="@color/black"
+                android:background="@color/colorBlue50PercentTransparent"
+                />
         </LinearLayout>
-</LinearLayout>
-
-
-
 
 </FrameLayout>
