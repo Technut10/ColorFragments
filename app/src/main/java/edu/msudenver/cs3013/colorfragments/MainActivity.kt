@@ -11,6 +11,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.ListFragment
+import androidx.fragment.app.replace
+
 interface ColorListener{
     fun onSelect(id: Int)
 }
@@ -29,24 +31,11 @@ class MainActivity : AppCompatActivity(), ColorListener {
         }
     }
 
-    fun onCreatedView(savedInstanceState: Bundle?){
 
-    }
-
-    fun insertFrag(){
-        var flag : Boolean = true
-        var mainLayout : LinearLayout = findViewById(R.id.main)
-        var inflater : LayoutInflater = getLayoutInflater()
-        var colorFragment : View = inflater.inflate(R.layout.fragment_color , mainLayout, false)
-
-    }
     override fun onSelect(id:Int) {
-        id.let { pickColor ->
-            val colorFragment = ColorFragment.newInstance(id)
-            val cf = id
-            val redFrag = Color.rgb(255, 150, 150)
-            val blueFrag = Color.rgb(155,155, 250)
-        }
+        val fcv = findViewById<FragmentContainerView>(R.id.lower_fragment_container)
+        val colorFragment = ColorFragment.newInstance(id)
+        supportFragmentManager.beginTransaction().replace(fcv.id, colorFragment).addToBackStack(null).commit()
     }
 
 

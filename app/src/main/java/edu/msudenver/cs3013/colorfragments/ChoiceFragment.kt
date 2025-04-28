@@ -1,5 +1,6 @@
 package edu.msudenver.cs3013.colorfragments
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -22,15 +23,21 @@ private const val RED = 2
  * create an instance of this fragment.
  */
 class ChoiceFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var choiceListener: ColorListener? = null
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is ColorListener){
+            choiceListener = context
+        } else {
+            throw RuntimeException("$context must implement something")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -46,12 +53,12 @@ class ChoiceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val redButton = view.findViewById<TextView>(R.id.red_fragment)
         val blueButton = view.findViewById<TextView>(R.id.blue_fragment)
-        val lowerFragment = view.findViewById<TextView>(R.id.color_fragment)
         redButton.setOnClickListener {
-            lowerFragment.setBackgroundColor(Color.rgb(255,150,150))
+            choiceListener?.onSelect(RED)
         }
         blueButton.setOnClickListener {
-            lowerFragment.setBackgroundColor(Color.rgb(155,155,250))
+            choiceListener?.onSelect(BLUE)
+
         }
     }
 
@@ -66,7 +73,7 @@ class ChoiceFragment : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment ChoiceFragment.
          */
-        // TODO: Rename and change types and number of parameters
+        // TODOd: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             ChoiceFragment().apply {

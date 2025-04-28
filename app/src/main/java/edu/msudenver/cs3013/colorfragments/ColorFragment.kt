@@ -1,17 +1,18 @@
 package edu.msudenver.cs3013.colorfragments
 
+import android.content.Context
 import android.graphics.Color
+import android.graphics.Color.rgb
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
+private const val COLOR_CHOICE = "COLOR_CHOICE"
 
 /**
  * A simple [Fragment] subclass.
@@ -19,15 +20,28 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ColorFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-     var myIndex : Int = 0
+     val blue = rgb(155, 155, 255)
+    val red = rgb(255,155,155)
+    var myIndex : Int = 0
+
+    companion object {
+        private var fragmentCount = 0
+        // TODOd: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(choice: Int) =
+            ColorFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(COLOR_CHOICE, choice)
+                }
+
+            }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+          if(savedInstanceState == null){
+            fragmentCount++
+            myIndex = fragmentCount
         }
     }
 
@@ -41,39 +55,22 @@ class ColorFragment : Fragment() {
 
     override fun onViewCreated(view:View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
-        Log.d("BlueFragment", "===ON VIEW CREATED!!!====")
-        fragmentCount++
-    }
+        Log.d("ColorFragment", "===ON VIEW CREATED!!!====")
+        val colorChoice = arguments?.getInt(COLOR_CHOICE) ?: 0
+        val lowerFragment = view.findViewById<TextView>(R.id.mycolor)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ColorFragment.
-         */
-            var fragmentCount : Int
-                get(){
-                    return fragmentCount
-                }
-            init {
-                fragmentCount = 0
+        when(colorChoice) {
+            1 -> {
+                lowerFragment.setBackgroundColor(blue)
+                lowerFragment.text ="GENERIC RED FRAGMENT - UID $myIndex"
             }
-
-
-
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(id: Int) =
-            ColorFragment().apply {
-                arguments = Bundle().apply {
-                    fragmentCount = id
-                    putInt(ARG_PARAM1, id)
-                    putString(ARG_PARAM2, id.toString())
-                }
+            2 -> {
+                lowerFragment.setBackgroundColor(red)
+                lowerFragment.text ="GENERIC BLUE FRAGMENT - UID $myIndex"
 
             }
+        }
     }
+
+
 }
